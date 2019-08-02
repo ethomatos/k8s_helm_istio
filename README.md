@@ -16,9 +16,6 @@ These are step by step detailed instructions that will guide you to start with n
   3. ***Datadog***
    - installation using a Helm chart
    - incorporating and deploying the use of the Cluster agent
-   - Logs
-     - Configuring logs and multi-line aggregation
-     - Configuring APM with traces
   
   
   4. ***Deploy a three-tiered application to test Datadog APM with Istio side-car injection***
