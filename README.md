@@ -79,6 +79,7 @@ These are step by step detailed instructions that will guide you to start with n
   - After updating manifest files for postgres, Flask and Springboot run the containers inside the new namespace.
   - Confirm and check the Springboot application.
 
+
 8. ***Test end-to-end inside the Datadog platform***
   - Check infrastructure, look at the hostmap, the containers view and processes.
   - Look for logs coming into the platform from the cluster.
@@ -396,7 +397,16 @@ These are step by step detailed instructions that will guide you to start with n
       > springbootapp-testing-786f48d8db-kjxwb   2/2     Running   0          66s  
 
 
-  #### Test the Sprinboot application
+  #### Test the Sprinboot application and use tcpdump to capture traffic from the application pods
+  - Connect to the Flask app pod, install net-tools and tcpdump.
+    - First find the name of the pod, use `kubectl -n training get pods`
+    - Connect to the pod using `kubectl exec -it <pod_name> bash`
+    - While in the pod, run the command as root `apt-get update`
+    - After updating apt, install net-tools which provides ifconfig, use `apt-get install net-tools`
+    - Once the installation completed, check it by running `ifconfig -a` and identify your main interface which typically is ***eth0***
+    - Now install tcpdump, run the command `apt-get install tcpdump`
+    - Use tcpdump to look for packets coming into or out of your pod, there are many, many options to tcpdump, start with this simple one:
+      - `tcpdump -i eth0 port 8126` (This will show any packets coming into your pod's eth0 interface, with a TCP port of 8126)
   - Run the following command to get the IP address of the services for the application:
     - `kubectl -n training get svc`
   - Find the value of the `CLUSTER-IP` for the flaskapp and use that to run these two tests:
