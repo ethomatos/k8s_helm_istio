@@ -2,7 +2,7 @@
 These are step by step detailed instructions that will guide you to start with nothing and end up with a Kubernetes 2 node cluster using all the following items:
 
 
-  1. ***Kubernetes***
+  1. ***Installing Kubernetes and Helm***
    - with role based access control (RBAC)
    - with Tiller and Helm
    - different namespaces
@@ -86,7 +86,6 @@ These are step by step detailed instructions that will guide you to start with n
   - Check APM Services, the Service Map and confirm dependencies.
   - Execute tests using `curl` against the Springboot application.
   - Use `tcpdump` to check traffic between the Istio side-car injection namespace and the Datadog agents.
-  - Confirm traces and coming in and check the Trace Search page on the Datadog account.
 
 
 # Step 1: The Nodes
