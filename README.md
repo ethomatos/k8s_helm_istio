@@ -403,9 +403,9 @@ These are step by step detailed instructions that will guide you to start with n
   - Run the following command to get the IP address of the services for the application:
     - `kubectl -n training get svc`
   - Find the value of the `CLUSTER-IP` for the flaskapp and use that to run these two tests:
-    - `curl 10.105.80.139:5000/`
+    - `curl CLUSTER-IP:5000/`
       - The output on the screen should be _Flask has been kuberneted_
-    - `curl 10.105.80.139:5000/query`
+    - `curl CLUSTER-IP:5000/query`
       - The output on the screen should be _(u'1', u'dog@datadog.com')_
 
 
