@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springbootapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springbootapp
+  template:
+    metadata:
+      labels:
+        app: springbootapp
+    spec:
+      containers:
+      - name: springbootapp
+        image: ethomatos/sample_springboot:v3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DD_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: DD_AGENT_PORT
+          value: '8126'
+        - name: DD_SERVICE_NAME
+          value: 'SpringBoot_Service_Training'
+        - name: DD_TRACE_ANALYTICS_ENABLED
+          value: "true"
+        - name: DD_JMXFETCH_ENABLED
+          value: "true"
+        - name: DD_STATSD_PORT
+          value: '8125'
+        - name: DD_JMXFETCH_STATSD_PORT
+          value: '8125'
+        - name: DD_LOGS_INJECTION
+          value: "true"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springbootapp
+spec:
+  selector:
+    app: springbootapp
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+  type: LoadBalancer
