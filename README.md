@@ -81,9 +81,6 @@ These are step by step detailed instructions that will guide you to start with n
 
 
 8. ***Test end-to-end inside the Datadog platform***
-  - Check infrastructure, look at the hostmap, the containers view and processes.
-  - Look for logs coming into the platform from the cluster.
-  - Check APM Services, the Service Map and confirm dependencies.
   - Execute tests using `curl` against the Springboot application.
   - Use `tcpdump` to check traffic between the Istio side-car injection namespace and the Datadog agents.
 
