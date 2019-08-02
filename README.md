@@ -396,7 +396,7 @@ These are step by step detailed instructions that will guide you to start with n
       > springbootapp-testing-786f48d8db-kjxwb   2/2     Running   0          66s  
 
 
-  #### Test the Sprinboot application and use tcpdump to capture traffic from the application pods
+  #### Test the Springboot application and use tcpdump to capture traffic from the application pods
   - Connect to the Flask app pod, install net-tools and tcpdump.
     - First find the name of the pod, use `kubectl -n training get pods`
     - Connect to the pod using `kubectl exec -it <pod_name> bash`
