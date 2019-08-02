@@ -35,7 +35,7 @@ spec:
         - name: DD_AGENT_STATSD_PORT
           value: '8125'
         - name: POSTGRES_SERVICE_HOST
-          value: postgres.default
+          value: postgres.training
         - name: POSTGRES_SERVICE_PORT
           value: "5433"
         - name: DD_LOGS_INJECTION
